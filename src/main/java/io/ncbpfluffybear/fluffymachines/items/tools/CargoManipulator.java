@@ -124,7 +124,7 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
 
         storedFilters.put(p, new Pair<>(nodeData, filterItems)); // Save cargo slots into map
 
-        Utils.send(p, "&a已复制 " + SlimefunItem.getById((String) nodeData.get("id")).getItemName() + " &a的设置.");
+        Utils.send(p, "&a已複製 " + SlimefunItem.getById((String) nodeData.get("id")).getItemName() + " &a的設置.");
         createParticle(parent, Color.fromRGB(255, 252, 51)); // Bright Yellow
     }
 
@@ -137,7 +137,7 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
 
         // No data saved yet
         if (nodeSettings == null) {
-            Utils.send(p, "&c你还没有复制货运节点配置.");
+            Utils.send(p, "&c你還沒有複製貨運節點配置.");
             return;
         }
 
@@ -146,8 +146,8 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
 
         SlimefunItemStack savedNodeType = (SlimefunItemStack) SlimefunItem.getById((String) jsonData.get("id")).getItem();
         if (savedNodeType != nodeType) {
-            Utils.send(p, "&c你当前复制的是 " + savedNodeType.getDisplayName() + " &c的配置," +
-                " &c无法应用到 " + nodeType.getDisplayName() + "&c!");
+            Utils.send(p, "&c你當前複製的是 " + savedNodeType.getDisplayName() + " &c的配置," +
+                " &c無法應用到 " + nodeType.getDisplayName() + "&c!");
             createParticle(child, Color.RED);
             return;
         }
@@ -180,7 +180,7 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
                 // Check if item not in inventory
                 if (!SlimefunUtils.containsSimilarItem(playerInventory, filterItems[i], true)) {
                     createParticle(child, Color.AQUA);
-                    Utils.send(p, "&c你没有过滤器物品 " + Utils.getViewableName(filterItems[i]) + "&c. 已跳过.");
+                    Utils.send(p, "&c你沒有過濾器物品 " + Utils.getViewableName(filterItems[i]) + "&c. 已跳過.");
                     continue;
                 }
 
@@ -198,7 +198,7 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
         }
 
         // Force menu update
-        Utils.send(p, "&a已应用 " + savedNodeType.getDisplayName() + " &a的设置.");
+        Utils.send(p, "&a已應用 " + savedNodeType.getDisplayName() + " &a的設置.");
         createParticle(child, Color.LIME);
 
     }
@@ -229,7 +229,7 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
 
             clearNodeFilter(node, p);
 
-            Utils.send(p, "&a该货运节点配置已清除");
+            Utils.send(p, "&a該貨運節點配置已清除");
             createParticle(node, Color.fromRGB(255, 152, 56)); // Light orange
         }
     }

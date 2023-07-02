@@ -69,7 +69,7 @@ public class AutoAncientAltar extends SlimefunItem implements EnergyNetComponent
     public AutoAncientAltar(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
 
-        new BlockMenuPreset(getId(), "&5全自动远古祭坛") {
+        new BlockMenuPreset(getId(), "&5全自動遠古祭壇") {
 
             @Override
             public void init() {
@@ -82,8 +82,8 @@ public class AutoAncientAltar extends SlimefunItem implements EnergyNetComponent
                 blockData.setData("craftOnce", String.valueOf(false));
 
                 if (blockData.getData("enabled") == null || String.valueOf(false).equals(blockData.getData("enabled"))) {
-                    menu.replaceExistingItem(6, new CustomItemStack(Material.GUNPOWDER, "&7启用: &4\u2718", "",
-                            "&e> 点击启用")
+                    menu.replaceExistingItem(6, new CustomItemStack(Material.GUNPOWDER, "&7啟用: &4\u2718", "",
+                            "&e> 點擊啟用")
                     );
                     menu.addMenuClickHandler(6, (p, slot, item, action) -> {
                         blockData.setData("enabled", String.valueOf(true));
@@ -91,8 +91,8 @@ public class AutoAncientAltar extends SlimefunItem implements EnergyNetComponent
                         return false;
                     });
                 } else {
-                    menu.replaceExistingItem(6, new CustomItemStack(Material.REDSTONE, "&7启用: &2\u2714",
-                            "", "&e> 点击禁用")
+                    menu.replaceExistingItem(6, new CustomItemStack(Material.REDSTONE, "&7啟用: &2\u2714",
+                            "", "&e> 點擊禁用")
                     );
                     menu.addMenuClickHandler(6, (p, slot, item, action) -> {
                         blockData.setData("enabled", String.valueOf(false));
@@ -101,8 +101,8 @@ public class AutoAncientAltar extends SlimefunItem implements EnergyNetComponent
                     });
                 }
 
-                menu.replaceExistingItem(7, new CustomItemStack(Material.ENCHANTING_TABLE, "&c制作一次",
-                        "", "&e> 单击制作一次")
+                menu.replaceExistingItem(7, new CustomItemStack(Material.ENCHANTING_TABLE, "&c製作一次",
+                        "", "&e> 單擊製作一次")
                 );
                 menu.addMenuClickHandler(7, (p, slot, item, action) -> {
                     blockData.setData("craftOnce", String.valueOf(true));
@@ -215,7 +215,7 @@ public class AutoAncientAltar extends SlimefunItem implements EnergyNetComponent
         }
 
         preset.addItem(2, new CustomItemStack(new ItemStack(Material.ENCHANTING_TABLE), "&e使用方法",
-                        "", "&b把将要制作的物品配方放入里面", "&4仅支持远古祭坛的配方"
+                        "", "&b把將要製作的物品配方放入裡面", "&4僅支持遠古祭壇的配方"
                 ),
                 (p, slot, item, action) -> false);
     }

@@ -64,17 +64,17 @@ public final class FluffyItemSetup {
     // ItemGroups
     private static final NestedItemGroup fluffymachines = new NestedItemGroup(
         new NamespacedKey(FluffyMachines.getInstance(), "fluffymachines"),
-        new CustomItemStack(Material.SMOKER, "&6蓬松机器")
+        new CustomItemStack(Material.SMOKER, "&6蓬鬆機器")
     );
 
     private static final ItemGroup generators = new SubItemGroup(
         new NamespacedKey(FluffyMachines.getInstance(), "generators"), fluffymachines,
-        new CustomItemStack(Material.BLAST_FURNACE, "&a发电机"), 1
+        new CustomItemStack(Material.BLAST_FURNACE, "&a發電機"), 1
     );
 
     private static final ItemGroup machines = new SubItemGroup(
         new NamespacedKey(FluffyMachines.getInstance(), "machines"), fluffymachines,
-        new CustomItemStack(Material.SMOKER, "&9机器"), 2
+        new CustomItemStack(Material.SMOKER, "&9機器"), 2
     );
 
     private static final ItemGroup tools = new SubItemGroup(
@@ -84,17 +84,17 @@ public final class FluffyItemSetup {
 
     private static final ItemGroup multiblocks = new SubItemGroup(
         new NamespacedKey(FluffyMachines.getInstance(), "multiblocks"), fluffymachines,
-        new CustomItemStack(Material.BRICKS, "&c多方块结构"), 4
+        new CustomItemStack(Material.BRICKS, "&c多方塊結構"), 4
     );
 
     private static final ItemGroup fluffybarrels = new SubItemGroup(
         new NamespacedKey(FluffyMachines.getInstance(), "barrels"), fluffymachines,
-        new CustomItemStack(Material.BARREL, "&6蓬松箱子"), 5
+        new CustomItemStack(Material.BARREL, "&6蓬鬆箱子"), 5
     );
 
     private static final ItemGroup portableChargers = new SubItemGroup(
         new NamespacedKey(FluffyMachines.getInstance(), "portable_chargers"), fluffymachines,
-        new CustomItemStack(FluffyItems.CARBONADO_PORTABLE_CHARGER, "&e便携式充电器"), 6
+        new CustomItemStack(FluffyItems.CARBONADO_PORTABLE_CHARGER, "&e攜帶式充電器"), 6
     );
 
     private static final ItemGroup wrenches = new SubItemGroup(
@@ -104,12 +104,12 @@ public final class FluffyItemSetup {
 
     private static final ItemGroup cargo = new SubItemGroup(
         new NamespacedKey(FluffyMachines.getInstance(), "cargo"), fluffymachines,
-        new CustomItemStack(Material.CHEST, "&3货运"), 8
+        new CustomItemStack(Material.CHEST, "&3貨運"), 8
     );
 
     private static final ItemGroup misc = new SubItemGroup(
         new NamespacedKey(FluffyMachines.getInstance(), "misc"), fluffymachines,
-        new CustomItemStack(Material.HOPPER, "&8杂项"), 9
+        new CustomItemStack(Material.HOPPER, "&8雜項"), 9
     );
 
     private FluffyItemSetup() {
@@ -131,9 +131,9 @@ public final class FluffyItemSetup {
                 barrelType.getType(),
                 barrelType.getDisplayName(),
                 "",
-                "&7可以储存大量物品",
+                "&7可以儲存大量物品",
                 "",
-                "&b容量: &e可储存 " + Barrel.getDisplayCapacity(barrelType) + " 个物品"
+                "&b容量: &e可儲存 " + Barrel.getDisplayCapacity(barrelType) + " 個物品"
             );
 
             new Barrel(fluffybarrels, barrelStack, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {

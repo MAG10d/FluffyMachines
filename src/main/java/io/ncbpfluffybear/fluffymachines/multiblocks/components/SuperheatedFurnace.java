@@ -80,7 +80,7 @@ public class SuperheatedFurnace extends NonHopperableBlock {
         addItemHandler(onBreak());
         addItemSetting(breakOnlyWhenEmpty);
 
-        new BlockMenuPreset(getId(), "&c铸造厂") {
+        new BlockMenuPreset(getId(), "&c鑄造廠") {
 
             @Override
             public void init() {
@@ -91,9 +91,9 @@ public class SuperheatedFurnace extends NonHopperableBlock {
             public void newInstance(@Nonnull BlockMenu menu, @Nonnull Block b) {
                 if (StorageCacheUtils.getData(b.getLocation(), "stored") == null) {
 
-                    menu.replaceExistingItem(4, new CustomItemStack(Material.GUNPOWDER, "&6可用矿粉: &e0", "&a> &e左键点击&a取出1个", "&a> &e右键点击&a取出1组"));
-                    menu.replaceExistingItem(7, new CustomItemStack(Material.IRON_INGOT, "&6可用锭: &e0", "&a> &e左键点击&a取出1个", "&a> &e右键点击&a取出1组"));
-                    menu.replaceExistingItem(1, new CustomItemStack(Material.CHEST, "&6已存储矿粉: &e0 &7(0%)", "&b类型: 无", "&7组: 0"));
+                    menu.replaceExistingItem(4, new CustomItemStack(Material.GUNPOWDER, "&6可用礦粉: &e0", "&a> &e左鍵點擊&a取出1個", "&a> &e右鍵點擊&a取出1組"));
+                    menu.replaceExistingItem(7, new CustomItemStack(Material.IRON_INGOT, "&6可用錠: &e0", "&a> &e左鍵點擊&a取出1個", "&a> &e右鍵點擊&a取出1組"));
+                    menu.replaceExistingItem(1, new CustomItemStack(Material.CHEST, "&6已儲存礦粉: &e0 &7(0%)", "&b類型: 無", "&7組: 0"));
 
                     StorageCacheUtils.setData(b.getLocation(), "stored", "0");
                 }
@@ -155,7 +155,7 @@ public class SuperheatedFurnace extends NonHopperableBlock {
                     String type = getBlockInfo(b.getLocation(), "type");
 
                     if (breakOnlyWhenEmpty.getValue() && stored != 0) {
-                        Utils.send(p, "&c请清空铸造厂后再破坏!");
+                        Utils.send(p, "&c請清空鑄造廠後再破壞!");
                         e.setCancelled(true);
                         return;
                     }
@@ -167,7 +167,7 @@ public class SuperheatedFurnace extends NonHopperableBlock {
                     }
 
                     if (itemCount > 5) {
-                        Utils.send(p, "&c在打破这个超热炉之前,最好把东西拿走!");
+                        Utils.send(p, "&c在打破這個超熱爐之前,最好把東西拿走!");
                         e.setCancelled(true);
                         return;
                     }
@@ -182,8 +182,8 @@ public class SuperheatedFurnace extends NonHopperableBlock {
 
                         if (stored > OVERFLOW_AMOUNT) {
 
-                            Utils.send(p, "&e铸造厂拥有超过" + OVERFLOW_AMOUNT + "个物品! " +
-                                "仅掉落 " + OVERFLOW_AMOUNT + " 个物品!");
+                            Utils.send(p, "&e鑄造廠擁有超過" + OVERFLOW_AMOUNT + "個物品! " +
+                                "僅掉落 " + OVERFLOW_AMOUNT + " 個物品!");
                             int toRemove = OVERFLOW_AMOUNT;
                             while (toRemove >= stackSize) {
 
@@ -355,13 +355,13 @@ public class SuperheatedFurnace extends NonHopperableBlock {
 
         if (stored.equals("0")) {
             setBlockInfo(b, "type", null);
-            inv.replaceExistingItem(INPUT_INDICATOR, new CustomItemStack(new ItemStack(Material.CHEST), "&6可用矿粉: &e0 &7(0%)", "&b类型: 无", "&7组: 0"));
+            inv.replaceExistingItem(INPUT_INDICATOR, new CustomItemStack(new ItemStack(Material.CHEST), "&6可用礦粉: &e0 &7(0%)", "&b類型: 無", "&7組: 0"));
         } else {
-            inv.replaceExistingItem(INPUT_INDICATOR, new CustomItemStack(new ItemStack(Material.CHEST), "&6可用锭: &e" + stored + " &7(" + Double.parseDouble(stored) / MAX_STORAGE * 100 + "%)", "&b类型: " + type, "&7组: " + Double.parseDouble(stored) / 64));
+            inv.replaceExistingItem(INPUT_INDICATOR, new CustomItemStack(new ItemStack(Material.CHEST), "&6可用錠: &e" + stored + " &7(" + Double.parseDouble(stored) / MAX_STORAGE * 100 + "%)", "&b類型: " + type, "&7組: " + Double.parseDouble(stored) / 64));
 
         }
-        inv.replaceExistingItem(DUST_INDICATOR, new CustomItemStack(new ItemStack(Material.GUNPOWDER), "&6可用矿粉: &e" + stored, "&a> &e左键点击&a取出1个", "&a> &e右键点击&a取出1组"));
-        inv.replaceExistingItem(INGOT_INDICATOR, new CustomItemStack(new ItemStack(Material.IRON_INGOT), "&6可用锭: &e" + stored, "&a> &e左键点击&a取出1个", "&a> &e右键点击&a取出1组"));
+        inv.replaceExistingItem(DUST_INDICATOR, new CustomItemStack(new ItemStack(Material.GUNPOWDER), "&6可用礦粉: &e" + stored, "&a> &e左鍵點擊&a取出1個", "&a> &e右鍵點擊&a取出1組"));
+        inv.replaceExistingItem(INGOT_INDICATOR, new CustomItemStack(new ItemStack(Material.IRON_INGOT), "&6可用錠: &e" + stored, "&a> &e左鍵點擊&a取出1個", "&a> &e右鍵點擊&a取出1組"));
 
 
     }

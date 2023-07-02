@@ -38,31 +38,31 @@ public class MiniBarrel extends Barrel {
     protected void buildMenu(BlockMenu menu, Block b) {
         super.buildMenu(menu, b);
         menu.replaceExistingItem(13, new CustomItemStack(Material.YELLOW_STAINED_GLASS_PANE,
-                "&e更改容量", "&7> 点击更改容量", "&e当前容量: " + getCapacity(b),
+                "&e更改容量", "&7> 點擊更改容量", "&e當前容量: " + getCapacity(b),
                 "&e最大限制: " + barrelCapacity.getValue()
         ));
         menu.addMenuClickHandler(13, (p, slot, item, action) -> {
             p.closeInventory();
-            Utils.send(p, "&e请输入迷你蓬松箱子的容量. 最大限制为: " + barrelCapacity.getValue());
+            Utils.send(p, "&e請輸入迷你蓬鬆箱子的容量. 最大限制為: " + barrelCapacity.getValue());
             ChatUtils.awaitInput(p, message -> {
                 int renameSize = NumberUtils.getInt(message, 0);
 
                 if (renameSize == 0 || renameSize > barrelCapacity.getValue()) {
-                    Utils.send(p, "&c箱子容量必须为: 1 至 " + barrelCapacity.getValue());
+                    Utils.send(p, "&c箱子容量必須為: 1 至 " + barrelCapacity.getValue());
                     return;
                 }
 
                 if (renameSize < getStored(b)) {
-                    Utils.send(p, "&c请在更改容量前移除多余的物品!");
+                    Utils.send(p, "&c請在更改容量前移除多餘的物品!");
                     return;
                 }
 
                StorageCacheUtils.setData(b.getLocation(), "max-size", String.valueOf(renameSize));
                 menu.replaceExistingItem(13, new CustomItemStack(Material.YELLOW_STAINED_GLASS_PANE,
-                    "&e更改容量", "&7> 点击更改容量", "&e当前容量: " + renameSize,
+                    "&e更改容量", "&7> 點擊更改容量", "&e當前容量: " + renameSize,
                     "&e最大限制: " + barrelCapacity.getValue()
                 ));
-                Utils.send(p, "&a已更改容量为: " + renameSize);
+                Utils.send(p, "&a已更改容量為: " + renameSize);
                 updateMenu(b, menu, true, renameSize);
             });
             return false;

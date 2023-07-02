@@ -99,7 +99,7 @@ public class FireproofRune extends SimpleSlimefunItem<ItemDropHandler> {
                         setFireproof(itemStack);
                         l.getWorld().dropItemNaturally(l, itemStack);
 
-                        Utils.send(p, "&a你的物品现在是防火的了");
+                        Utils.send(p, "&a你的物品現在是防火的了");
                     } else {
                         Utils.send(p, "&c你的物品不能防火");
                     }

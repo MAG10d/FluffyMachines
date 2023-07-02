@@ -46,7 +46,7 @@ public class BackpackUnloader extends SlimefunItem implements EnergyNetComponent
 
         addItemHandler(onBreak());
 
-        new BlockMenuPreset(getId(), "&e背包卸载机") {
+        new BlockMenuPreset(getId(), "&e背包卸載機") {
 
             @Override
             public void init() {
@@ -186,4 +186,3 @@ public class BackpackUnloader extends SlimefunItem implements EnergyNetComponent
         return OUTPUT_SLOTS;
     }
 }
-

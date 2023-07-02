@@ -68,7 +68,7 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
                 accepting.set(null, true);
             }
         } catch (IllegalAccessException | NoSuchFieldException ignored) {
-            getLogger().warning("无法注册发光附魔");
+            getLogger().warning("無法註冊發光附魔");
         }
 
         registerGlow();
@@ -127,9 +127,9 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
 
         final Metrics metrics = new Metrics(this, 8927);
 
-        getLogger().log(Level.INFO, ChatColor.GREEN + "你好！要共享服务器到" +
-            "Slimefun社区吗?");
-        getLogger().log(Level.INFO, ChatColor.GREEN + "加入官方Slimefun服务器" +
+        getLogger().log(Level.INFO, ChatColor.GREEN + "你好！要共享伺服器到" +
+            "Slimefun社區嗎?");
+        getLogger().log(Level.INFO, ChatColor.GREEN + "加入官方Slimefun伺服器" +
             "https://discord.gg/slimefun");
     }
 
@@ -142,12 +142,12 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
     public boolean onCommand(@Nonnull CommandSender sender, @Nonnull Command cmd, @Nonnull String label, String[] args) {
 
         if (args.length == 0) {
-            Utils.send(sender, "&c无效的指令");
+            Utils.send(sender, "&c無效的指令");
             return true;
         }
 
         if (!(sender instanceof Player)) {
-            Utils.send(sender, "&c只有玩家才能执行该指令");
+            Utils.send(sender, "&c只有玩家才能執行該指令");
             return true;
         }
 
@@ -162,7 +162,7 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
                 return true;
             case "VERSION":
             case "V":
-                Utils.send(p, "&e当前版本:" + this.getPluginVersion());
+                Utils.send(p, "&e當前版本:" + this.getPluginVersion());
                 return true;
         }
 
@@ -171,7 +171,7 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
                 case "ADDINFO":
 
                     if (args.length != 3) {
-                        Utils.send(p, "&c请指定键名和值");
+                        Utils.send(p, "&c請指定鍵名和值");
 
                     } else {
                         RayTraceResult rayResult = p.rayTraceBlocks(5d);
@@ -180,7 +180,7 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
                         if (blockData != null) {
                             if (blockData.isDataLoaded()) {
                                 blockData.setData(args[1], args[2]);
-                                Utils.send(p, "&a信息已应用.");
+                                Utils.send(p, "&a訊息已應用.");
                             } else {
                                 Slimefun.getDatabaseManager().getBlockDataController().loadBlockDataAsync(
                                         blockData,
@@ -188,13 +188,13 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
                                             @Override
                                             public void onResult(SlimefunBlockData result) {
                                                 blockData.setData(args[1], args[2]);
-                                                Utils.send(p, "&a信息已应用.");
+                                                Utils.send(p, "&a訊息已應用.");
                                             }
                                         }
                                 );
                             }
                         } else {
-                            Utils.send(p, "&c你必须看向一个Slimefun方块");
+                            Utils.send(p, "&c你必須看向一個Slimefun方塊");
                         }
                     }
                     return true;
@@ -221,7 +221,7 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
         }
 
         if (players > 0) {
-            Bukkit.getLogger().log(Level.INFO, "已自动保存 {0} 位玩家的数据!", players);
+            Bukkit.getLogger().log(Level.INFO, "已自動保存 {0} 位玩家的數據!", players);
         }
     }
 
